@@ -59,6 +59,7 @@ include 'connection.php';
                         <label>email</label>
                         <input type="text" id="email" class="form-control">
                     </div>
+                    <input type="text" id="userId" class="form-control">
                     </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Update</button>
@@ -80,8 +81,28 @@ include 'connection.php';
             $('#firstName').val(firstName);
             $('#lastName').val(lastName);
             $('#email').val(email);
+            $('#userId').val(id);
             $('#myModal').modal('toggle');
-                        
         }); 
+
+        //now create event to get data from field and update in database
+       
+        $('#save').click(function(){
+            console.log("Hello world!");
+            var id = $('#userId').val();
+            var firstName = $('#firstName').val();
+            var lastName = $('#lastName').val();
+            var email = $('#email').val();
+
+            $.ajax({
+                url     :   'connection.php',
+                method  :   'post',
+                data    :   {firstName  :   firstName   ,   lastName:   lastName    ,   email: email, id: id},
+                success :   function(response){
+                   
+
+                }
+            });
+        });
     });
     </script>
