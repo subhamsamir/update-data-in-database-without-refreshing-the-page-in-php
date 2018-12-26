@@ -88,7 +88,7 @@ include 'connection.php';
         //now create event to get data from field and update in database
        
         $('#save').click(function(){
-            console.log("Hello world!");
+            
             var id = $('#userId').val();
             var firstName = $('#firstName').val();
             var lastName = $('#lastName').val();
@@ -99,8 +99,7 @@ include 'connection.php';
                 method  :   'post',
                 data    :   {firstName  :   firstName   ,   lastName:   lastName    ,   email: email, id: id},
                 success :   function(response){
-                   
-
+                    console.log("Hello world!");
                 }
             });
         });
